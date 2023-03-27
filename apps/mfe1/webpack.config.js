@@ -2,14 +2,16 @@ const { shareAll, withModuleFederationPlugin } = require('@angular-architects/mo
 
 module.exports = withModuleFederationPlugin({
 
-    name: "mfe1",
+  name: "mfe1",
 
-    exposes: {
-      './Module': './apps/mfe1/src/app/flights/flights.module.ts',
-    }, 
+  exposes: {
+    './Module': './apps/mfe1/src/app/flights/flights.module.ts',
+  },
 
-    shared: shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+  shared: shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
 
-    sharedMappings: ['@demo/auth-lib'],
+  sharedMappings: [
+    '@demo/auth-lib',
+    '@demo-workspace/shared-lib'],
 
 });

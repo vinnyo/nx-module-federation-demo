@@ -10,24 +10,15 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@demo/auth-lib": [
-        "libs/auth-lib/src/index.ts"
-      ],
-      "@demo/mfe1/domain-logic": [
-        "libs/mfe1/domain-logic/src/index.ts"
-      ]
+      "@demo-workspace/shared-lib": ["libs/shared-lib/src/index.ts"],
+      "@demo/auth-lib": ["libs/auth-lib/src/index.ts"],
+      "@demo/mfe1/domain-logic": ["libs/mfe1/domain-logic/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

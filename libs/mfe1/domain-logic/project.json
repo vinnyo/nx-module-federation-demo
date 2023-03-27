@@ -5,20 +5,14 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/mfe1/domain-logic/**/*.ts"
-        ]
+        "lintFilePatterns": ["libs/mfe1/domain-logic/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/mfe1/domain-logic"
-      ],
+      "outputs": ["coverage/libs/mfe1/domain-logic"],
       "options": {
         "jestConfig": "libs/mfe1/domain-logic/jest.config.ts",
         "passWithNoTests": true

@@ -10,6 +10,10 @@ export class AuthService {
     return this._userName;
   }
 
+  constructor() {
+    console.log("## Auth service library");
+  }
+
   login(userName: string, password: string): void {
     this._userName = userName;
   }

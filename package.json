@@ -5,9 +5,10 @@
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
-    "start": "nx serve",
+    "start": "nx serve shell",
     "build": "nx build",
     "test": "nx test",
+    "serve:all": "nx run-many --target serve --all",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,

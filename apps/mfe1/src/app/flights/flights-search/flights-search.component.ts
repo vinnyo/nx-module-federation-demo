@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from '@demo-workspace/shared-lib';
 import { AuthService } from '@demo/auth-lib';
 
 @Component({
@@ -7,10 +8,12 @@ import { AuthService } from '@demo/auth-lib';
 })
 export class FlightsSearchComponent {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, public shared: SharedService) {
+    this.shared.text = "wriiten by mfe1";
+  }
 
 
-userName = this.authService.userName;
+  userName = this.authService.userName;
 
   search() {
     alert('Not implemented for this demo!');
