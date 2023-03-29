@@ -5,15 +5,22 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:webpack-browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/mfe1",
         "index": "apps/mfe1/src/index.html",
         "main": "apps/mfe1/src/main.ts",
         "polyfills": "apps/mfe1/src/polyfills.ts",
         "tsConfig": "apps/mfe1/tsconfig.app.json",
-        "assets": ["apps/mfe1/src/favicon.ico", "apps/mfe1/src/assets"],
-        "styles": ["apps/mfe1/src/styles.css"],
+        "assets": [
+          "apps/mfe1/src/favicon.ico",
+          "apps/mfe1/src/assets"
+        ],
+        "styles": [
+          "apps/mfe1/src/styles.css"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/mfe1/webpack.config.js"
@@ -69,7 +76,11 @@
       "defaultConfiguration": "development",
       "options": {
         "port": 4201,
-        "publicHost": "http://localhost:4201"
+        "publicHost": "http://localhost:4201",
+        "allowedHosts": [
+          "*"
+        ],
+        "disableHostCheck": true
       }
     },
     "extract-i18n": {
@@ -82,17 +93,40 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/mfe1/**/*.ts", "apps/mfe1/**/*.html"]
+        "lintFilePatterns": [
+          "apps/mfe1/**/*.ts",
+          "apps/mfe1/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/mfe1"],
+      "outputs": [
+        "coverage/apps/mfe1"
+      ],
       "options": {
         "jestConfig": "apps/mfe1/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "serve-static": {
+      "executor": "@nrwl/angular:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "mfe1:build",
+        "port": 4201
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "mfe1:build:development"
+        },
+        "production": {
+          "buildTarget": "mfe1:build:production"
+        }
+      }
     }
   },
-  "tags": ["scope:mfe1"]
+  "tags": [
+    "scope:mfe1"
+  ]
 }
